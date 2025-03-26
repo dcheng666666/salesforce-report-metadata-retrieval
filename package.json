@@ -1,0 +1,13 @@
+{
+  "name": "salesforce-report-metadata-retrieval",
+  "version": "1.0.0",
+  "description": "Script to retrieve Salesforce report metadata",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "jsforce": "^1.11.1",
+    "dotenv": "^16.3.1"
+  }
+}
