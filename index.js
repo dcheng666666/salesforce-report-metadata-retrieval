@@ -1,7 +1,14 @@
-require('dotenv').config();
-const jsforce = require('jsforce');
-const fs = require('fs');
-const path = require('path');
+import dotenv from 'dotenv';
+import jsforce from 'jsforce';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Initialize environment variables
+dotenv.config();
+
+// Get directory name in ES modules
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Initialize Salesforce connection
 const conn = new jsforce.Connection({
@@ -127,7 +134,7 @@ function setupOutputDirectory(outputDir) {
 async function fetchReportMetadata(report) {
     return await conn.request({
         method: 'GET',
-        url: `/services/data/v57.0/analytics/reports/${report.Id}/describe`
+        url: `/services/data/v62.0/analytics/reports/${report.Id}/describe`
     });
 }
 
