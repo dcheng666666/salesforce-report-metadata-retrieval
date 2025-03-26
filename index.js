@@ -106,7 +106,7 @@ async function getAllReports(config = {}) {
     return {
         records: allRecords,
         totalSize: allRecords.length,
-        query: query // 添加查询语句到返回结果，方便调试
+        query: query // Add query to result for debugging
     };
 }
 
@@ -166,7 +166,7 @@ function saveSummaryFile(summaryFile, totalReports, allReportsMetadata, queryCon
     const summary = {
         totalReports: totalReports,
         processedAt: new Date().toISOString(),
-        queryConfig: queryConfig, // 添加查询配置到汇总文件
+        queryConfig: queryConfig, // Add query configuration to summary file
         reports: allReportsMetadata
     };
     fs.writeFileSync(summaryFile, JSON.stringify(summary, null, 2));
@@ -210,5 +210,5 @@ async function getAllReportsMetadata() {
     }
 }
 
-// 直接调用主函数，配置从环境变量中读取
+// Call main function with configuration from environment variables
 getAllReportsMetadata();
